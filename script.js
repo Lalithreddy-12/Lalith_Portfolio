@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // DOM Elements
+document.addEventListener('DOMContentLoaded', function () {
   const nav = document.querySelector('nav');
   const scrollBtn = document.querySelector('.scroll-button a');
   const body = document.body;
@@ -7,106 +6,95 @@ document.addEventListener('DOMContentLoaded', function() {
   const menuBtn = document.querySelector('.menu-btn');
   const cancelBtn = document.querySelector('.cancel-btn');
   const navLinks = document.querySelectorAll('.menu li a');
+  const sections = document.querySelectorAll('section');
 
-  // ===== Sticky Navigation =====
+  // ==== Sticky Nav + Scroll Button ====
   function handleScroll() {
-    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
-    
-    if (scrollPosition > 20) {
-      nav.classList.add('sticky');
-      scrollBtn.style.display = 'block';
-    } else {
-      nav.classList.remove('sticky');
-      scrollBtn.style.display = 'none';
-    }
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
+
+    nav.classList.toggle('sticky', scrollY > 20);
+    scrollBtn.classList.toggle('visible', scrollY > 20);
+
+    // Scroll reveal effect
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const revealPoint = 150;
+
+      if (rect.top < window.innerHeight - revealPoint) {
+        section.classList.add('visible-section');
+      }
+    });
   }
 
-  // Throttle scroll event for better performance
-  let isScrolling;
-  window.addEventListener('scroll', function() {
-    window.clearTimeout(isScrolling);
-    isScrolling = setTimeout(handleScroll, 50);
-  }, false);
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        handleScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
 
-  // Initial check
-  handleScroll();
+  handleScroll(); // Initial check
 
-  // ===== Mobile Navigation =====
+  // ==== Mobile Nav Menu ====
   function toggleNavMenu(show) {
-    if (show) {
-      navBar.classList.add('active');
-      menuBtn.style.opacity = '0';
-      menuBtn.style.pointerEvents = 'none';
-      body.style.overflow = 'hidden';
-      scrollBtn.style.pointerEvents = 'none';
-    } else {
-      navBar.classList.remove('active');
-      menuBtn.style.opacity = '1';
-      menuBtn.style.pointerEvents = 'auto';
-      body.style.overflow = 'auto';
-      scrollBtn.style.pointerEvents = 'auto';
-    }
+    navBar.classList.toggle('active', show);
+    menuBtn.classList.toggle('hidden-btn', show);
+    scrollBtn.classList.toggle('disable-scroll-btn', show);
+    body.style.overflow = show ? 'hidden' : 'auto';
   }
 
-  // Event Listeners
   menuBtn.addEventListener('click', () => toggleNavMenu(true));
   cancelBtn.addEventListener('click', () => toggleNavMenu(false));
 
-  // Close menu when clicking on nav links
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => toggleNavMenu(false));
-  });
+  navLinks.forEach((link) =>
+    link.addEventListener('click', () => toggleNavMenu(false))
+  );
 
-  // Close menu when clicking outside
   document.addEventListener('click', (e) => {
-    if (navBar.classList.contains('active') && 
-        !e.target.closest('.navbar') && 
-        !e.target.closest('.menu-btn')) {
+    const isInsideMenu = e.target.closest('.navbar') || e.target.closest('.menu-btn');
+    if (navBar.classList.contains('active') && !isInsideMenu) {
       toggleNavMenu(false);
     }
   });
 
-  // ===== Smooth Scrolling =====
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+  // ==== Smooth Scrolling ====
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-      
+      const targetElement = document.querySelector(this.getAttribute('href'));
+
       if (targetElement) {
         const headerOffset = nav.offsetHeight;
-        const targetPosition = targetElement.offsetTop - headerOffset;
-        
+        const offsetTop = targetElement.offsetTop - headerOffset;
+
         window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
+          top: offsetTop,
+          behavior: 'smooth',
         });
       }
     });
   });
 
-  // ===== Scroll to Top Button =====
+  // ==== Scroll to Top ====
   scrollBtn.addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   });
 
-  // ===== Accessibility Improvements =====
-  // Add keyboard navigation for menu
-  menuBtn.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggleNavMenu(true);
-    }
-  });
-
-  cancelBtn.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggleNavMenu(false);
-    }
-  });
+  // ==== Accessibility ====
+  [menuBtn, cancelBtn].forEach((btn, index) =>
+    btn.addEventListener('keydown', (e) => {
+      if (['Enter', ' '].includes(e.key)) {
+        e.preventDefault();
+        toggleNavMenu(index === 0); // menuBtn = true, cancelBtn = false
+      }
+    })
+  );
 });
