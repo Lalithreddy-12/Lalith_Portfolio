@@ -3,17 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <title>Lalith Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of Lalith Kammannagaru - Aspiring Developer">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
   </head>
   <body>
-    <!-- Move to up button -->
-    <div class="scroll-button">
-      <a href="#home"><i class="fas fa-arrow-up"></i></a>
-    </div>
-
     <!-- Navigation Menu -->
     <nav>
       <div class="navbar">
@@ -24,38 +21,41 @@
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
-          <div class="cancel-btn">
-            <i class="fas fa-times"></i>
-          </div>
         </ul>
-      
-      </div>
-      <div class="menu-btn">
-        <i class="fas fa-bars"></i>
       </div>
     </nav>
 
+    <!-- Move to up button -->
+    <div class="scroll-button">
+      <a href="#home"><i class="fas fa-arrow-up"></i></a>
+    </div>
+
     <!-- Home Section Start -->
-    <section class="home" id="home">
-      <div class="home-content">
-        <div class="text">
-          <div class="text-one">Hello,</div>
-          <div class="text-two">I'm Lalith Kammannagaru</div>
-          <div class="text-three">Aspiring Developer</div>
-        </div>
-        <div class="button">
-          <!-- Hire Me Button with Email -->
-          <div class="button">
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lalithreddy3094@gmail.com&su=Opportunity for Collaboration&body=Dear Lalith,%0D%0A%0D%0AI came across your portfolio and am impressed by your skills in [ Python, SQL, Web Development].%0D%0A%0D%0AI would love to discuss potential opportunities where your expertise could add value to our team.%0D%0A%0D%0ALooking forward to your response.%0D%0A%0D%0ABest regards,%0D%0A[Sender's Name]" target="_blank">
-              <button>Hire Me</button>
-            </a>
-          <!-- Download CV Button -->
-          <a href="lalith_resume2.pdf" download>
-            <button>Download CV</button>
-          </a>
-        </div>
-      </div>
-    </section>
+<section class="home" id="home">
+  <div class="home-content">
+    <div class="text">
+      <div class="text-one">Hello,</div>
+      <div class="text-two">I'm Lalith Kammannagaru</div>
+      <div class="text-three">Aspiring Developer</div>
+      <div class="text-four">Python | Web Development | SQL</div>
+    </div>
+    
+    <div class="button-group">
+      <a 
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=lalithreddy3094@gmail.com&su=Opportunity for Collaboration&body=Dear Lalith,%0D%0A%0D%0AI came across your portfolio and am impressed by your skills in [ Python, SQL, Web Development].%0D%0A%0D%0AI would love to discuss potential opportunities where your expertise could add value to our team.%0D%0A%0D%0ALooking forward to your response.%0D%0A%0D%0ABest regards,%0D%0A[Sender's Name]" 
+        target="_blank" 
+        class="cta-button"
+      >
+        <button>Hire Me</button>
+      </a>
+
+      <a href="K_LALITH-Resume.pdf" download class="cta-button secondary">
+        <button>Download CV</button>
+      </a>
+    </div>
+  </div>
+</section>
+
 
     <!-- About Section Start -->
     <section class="about" id="about">
@@ -63,119 +63,160 @@
         <div class="title"><span>About Me</span></div>
         <div class="about-details">
           <div class="left">
-            <img src="Lalith_pic.png" alt="Photography" />
-
+            <img src="Lalith_pic.png" alt="Lalith Kammannagaru" loading="lazy" />
           </div>
           <div class="right">
+            <div class="topic">Who am I?</div>
             <p>
-              I am a highly motivated and detail-oriented 3rd-year B.Tech student with a foundational knowledge of C, Java, Python and SQL with proficiency in HTML and CSS, I also have insights into Operating Systems and Computer Networks. As a fresher, I am passionate about exploring emerging technologies and continuously expanding my skills in dynamic environment. Seeking opportunities to gain hands-on experience and contribute to innovative projects while enhancing my technical expertise.
+              I am a highly motivated and detail-oriented 3rd-year B.Tech student with foundational knowledge of C, Java, Python, and SQL, along with proficiency in HTML and CSS. I also have insights into Operating Systems and Computer Networks.
             </p>
             <p>
-              I am a quick learner and a team player, eager to take on new challenges and contribute to the success of any project I am involved in. I am excited about the opportunity to work with talented professionals and make a positive impact in the tech industry.
+              As a fresher, I'm passionate about exploring emerging technologies and continuously expanding my skills in dynamic environments. I'm seeking opportunities to gain hands-on experience and contribute to innovative projects while enhancing my technical expertise.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills Section Start -->
-    <section class="skills" id="skills">
-      <div class="content">
-        <div class="title"><span>My Skills</span></div>
-        <div class="skills-details">
-          <div class="text">
-            <div class="topic">Skills Reflect My Knowledge</div>
-            <p>
-              As a fresher, I am excited to start my professional journey, eager to learn, and ready to contribute innovative ideas to any team I become part of.
-            </p>
-          </div>
-          <div class="boxes">
-            <div class="box">
-              <div class="topic">HTML</div>
-            </div>
-            <div class="box">
-              <div class="topic">CSS</div>
-            </div>
-            <div class="box">
-              <div class="topic">Python</div>
-            </div>
-            <div class="box">
-              <div class="topic">MySQL</div>
-            </div>
-            <div class="box">
-              <div class="topic">Java</div>
-            </div>
-            <div class="box">
-              <div class="topic">C</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section Start -->
-    <!-- My Project Section Start -->
-<section class="projects" id="projects">
+    <section class="skills-section" id="skills">
   <div class="content">
-    <div class="title"><span>Projects</span></div>
-    <div class="project-details">
-      
-      <div class="project">
-        
-        <div class="project-info">
-          <div class="icon">
-            <i class="fas fa-code"></i>
-          </div>
-          <div class="topic">Simple To-Do List Web-app</div>
-          <p>
-            Designed and implemented a <b>Web-based Simple To-Do List app</b> allowing users to add, delete, and mark tasks as complete. Implemented Database to store and manage user tasks efficiently.
-          </p>
-          <p>
-            <b>Tools & Libraries:</b> HTML, CSS, JavaScript, MySQL 
-          </p>
-        </div>
+    <div class="title">
+      <h2>Technical Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Python</h3>
+        <p>Proficient – Used in data analysis & web scripting</p>
       </div>
-      <br> 
-      <div class="project">
-        
-        <div class="project-info">
-          <div class="icon">
-            <i class="fas fa-code"></i>
-          </div>
-          <div class="topic">Portfolio Website</div>
-          <p>
-            Designed and developed a personal portfolio website to showcase my skills, projects, and experiences. The website is responsive and user-friendly, providing an engaging platform for potential employers to learn more about me.
-          </p>
-          <p>
-            <b>Tools & Libraries:</b> HTML, CSS, JavaScript 
-          </p>
-        </div>
+      <div class="skill-card">
+        <h3>MySQL</h3>
+        <p>Intermediate – Hands-on with queries & joins</p>
+      </div>
+      <div class="skill-card">
+        <h3>Java</h3>
+        <p>Intermediate – Strong with OOP & DSA basics</p>
+      </div>
+      <div class="skill-card">
+        <h3>C</h3>
+        <p>Intermediate – Fundamentals & problem solving</p>
+      </div>
+      <div class="skill-card">
+        <h3>HTML / CSS</h3>
+        <p>Proficient – Designed 3+ responsive websites</p>
+      </div>
     </div>
   </div>
 </section>
 
 
-    <!-- Contact Section Start -->
-    <section class="contact" id="contact">
+    <!-- Projects Section Start -->
+    <section class="projects" id="projects">
       <div class="content">
-        <div class="title"><span>Contact Me</span></div>
-        <div class="text">
-          <h1>Lalith Kammannagaru</h1>
-          <p>Email: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lalithreddy3094@gmail.com&su=Opportunity for Collaboration&body=Dear Lalith,%0D%0A%0D%0AI came across your portfolio and am impressed by your skills in [ Python, SQL, Web Development].%0D%0A%0D%0AI would love to discuss potential opportunities where your expertise could add value to our team.%0D%0A%0D%0ALooking forward to your response.%0D%0A%0D%0ABest regards,%0D%0A[Sender's Name]" target="_blank">lalithreddy3094@gmail.com</a></p>
-          <p>Phone: <a href="tel:+918309441174" target="_blank">+91 8309441174</a></p>
-          <a href="http://www.linkedin.com/in/lalith-kammannagaru" target="_blank">LinkedIn</a>
-          <a href="https://github.com/Lalithreddy-12" target="_blank">GitHub</a>
+        <div class="title"><span>My Projects</span></div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-content">
+              <div class="icon">
+                <i class="fas fa-tasks"></i>
+              </div>
+              <h3>To-Do List Web-app</h3>
+              <p>Developed a Web-based simple To-Do List app allowing users to add, delete, and mark tasks as complete. Implemented Database to store and manage user tasks efficiently.</p>
+              <div class="project-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>MySQL</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-content">
+              <div class="icon">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <h3>Portfolio Website</h3>
+              <p>Designed and developed a personal portfolio website to showcase my skills, projects, and experiences. The website is responsive and user-friendly.</p>
+              <div class="project-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- Contact Section Start -->
+<section class="contact" id="contact">
+  <div class="content">
+    <div class="title"><span>Contact Me</span></div>
+    <div class="contact-container">
+      
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h3>Let's Connect!</h3>
+        <p>Feel free to reach out for collaborations or just to say hello!</p>
+
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=lalithreddy3094@gmail.com&su=Opportunity for Collaboration&body=Dear Lalith,%0D%0A%0D%0AI came across your portfolio and am impressed by your skills in [ Python, SQL, Web Development].%0D%0A%0D%0AI would love to discuss potential opportunities where your expertise could add value to our team.%0D%0A%0D%0ALooking forward to your response.%0D%0A%0D%0ABest regards,%0D%0A[Sender's Name]"
+            target="_blank"
+          >
+            lalithreddy3094@gmail.com
+          </a>
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <a href="tel:+918309441174">+91 8309441174</a>
+        </div>
+
+        <div class="social-links">
+          <a href="http://www.linkedin.com/in/lalith-kammannagaru" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/Lalithreddy-12" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <form class="contact-form" id="contact-form">
+        <div class="form-group">
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <input type="text" id="subject" name="subject" placeholder="Subject">
+        </div>
+        <div class="form-group">
+          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+
     <!-- Footer Section Start -->
     <footer>
-      <div class="text">
-        <p>Thank you for visiting my portfolio! Let’s connect on
-          <a href="http://www.linkedin.com/in/lalith-kammannagaru" target="_blank">LinkedIn</a> and
-          <a href="https://github.com/Lalithreddy-12" target="_blank">GitHub</a>.
-        </p>
+      <div class="footer-content">
+        <p>© <span id="year"></span> Lalith Kammannagaru. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
     </footer>
 
