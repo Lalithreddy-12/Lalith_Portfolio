@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const yearElement = document.getElementById('year');
   const contactForm = document.getElementById('contact-form');
   const skillBars = document.querySelectorAll('.skill-bar');
+  const menuBtn = document.querySelector('.menu-btn');
 
   // Set current year in footer
   yearElement.textContent = new Date().getFullYear();
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.classList.toggle('dark');
     const isDarkMode = document.body.classList.contains('dark');
     localStorage.setItem('darkMode', isDarkMode);
-    
+
     // Update icon
     const icon = themeToggle.querySelector('i');
     icon.classList.toggle('fa-moon');
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // ===== Sticky Navigation =====
   function handleScroll() {
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
-    
+
     if (scrollPosition > 20) {
       nav.classList.add('sticky');
       scrollBtn.classList.add('active');
@@ -67,17 +68,22 @@ document.addEventListener('DOMContentLoaded', function() {
   // ===== Mobile Navigation =====
   function toggleNavMenu(show) {
     if (show) {
-      document.querySelector('.menu').classList.add('active');
+      navBar.classList.add('active');
+      menuBtn.style.opacity = '0';
+      menuBtn.style.pointerEvents = 'none';
       body.style.overflow = 'hidden';
       scrollBtn.style.pointerEvents = 'none';
     } else {
-      document.querySelector('.menu').classList.remove('active');
+      navBar.classList.remove('active');
+      menuBtn.style.opacity = '1';
+      menuBtn.style.pointerEvents = 'auto';
       body.style.overflow = 'auto';
       scrollBtn.style.pointerEvents = 'auto';
     }
   }
 
   // Event Listeners
+  menuBtn.addEventListener('click', () => toggleNavMenu(true));
   cancelBtn.addEventListener('click', () => toggleNavMenu(false));
 
   // Close menu when clicking on nav links
@@ -87,8 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Close menu when clicking outside
   document.addEventListener('click', (e) => {
-    const menu = document.querySelector('.menu');
-    if (menu.classList.contains('active') && 
+    if (navBar.classList.contains('active') && 
         !e.target.closest('.navbar') && 
         !e.target.closest('.menu-btn')) {
       toggleNavMenu(false);
@@ -101,11 +106,11 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       const targetId = this.getAttribute('href');
       const targetElement = document.querySelector(targetId);
-      
+
       if (targetElement) {
         const headerOffset = nav.offsetHeight;
         const targetPosition = targetElement.offsetTop - headerOffset;
-        
+
         window.scrollTo({
           top: targetPosition,
           behavior: 'smooth'
@@ -140,14 +145,14 @@ document.addEventListener('DOMContentLoaded', function() {
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      
+
       // Get form values
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData);
-      
+
       // Here you would typically send the data to a server
       console.log('Form submitted:', data);
-      
+
       // Show success message
       alert('Thank you for your message! I will get back to you soon.');
       contactForm.reset();
@@ -162,4 +167,20 @@ document.addEventListener('DOMContentLoaded', function() {
       rect.bottom >= 0
     );
   }
+
+  // ===== Accessibility Improvements =====
+  // Add keyboard navigation for menu
+  menuBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleNavMenu(true);
+    }
+  });
+
+  cancelBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleNavMenu(false);
+    }
+  });
 });
